@@ -358,7 +358,7 @@
 
 @media (min-width: 993px) and (max-width: 1200px) {
     .hero-spine-container {
-        max-width: 220px;
+        max-width: 250px;
         top: -20px;
     }
     .hero-content {
