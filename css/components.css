@@ -170,10 +170,14 @@
 .tech-grid{grid-template-columns:1fr}
 }
 @media(max-width:576px){
-    .testimonial-card{min-width:270px;padding:1.5rem}
-    .testimonial-card .text{font-size:.88rem;line-height:1.6;margin-bottom:1.2rem}
-    .testimonial-card .quote-icon{font-size:1.8rem;top:15px;right:15px}
-    .testimonials-section{padding:4rem 0}
+    .testimonial-card{min-width:260px;width:82vw;padding:1.25rem;border-radius:20px;margin:0 .5rem}
+    .testimonial-card .text{font-size:.85rem;line-height:1.5;margin-bottom:1rem}
+    .testimonial-card .quote-icon{font-size:1.5rem;top:12px;right:15px}
+    .reviewer-avatar{width:42px;height:42px;font-size:.9rem}
+    .reviewer h4{font-size:.9rem}
+    .reviewer p{font-size:.75rem}
+    .testimonials-section{padding:3rem 0}
+    .testimonials-track{gap:1rem;padding:1rem}
 .section{padding:4rem 0}
 }
 
