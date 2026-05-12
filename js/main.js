@@ -444,7 +444,7 @@ function init(){
   initCounters();
   initHeroCounters();
   initTestimonials();
-  initSpineHero();
+  // initSpineHero(); // Replaced by static realistic spine image
   initSpineExplore();
   initTilt();
   initSmoothScroll();
