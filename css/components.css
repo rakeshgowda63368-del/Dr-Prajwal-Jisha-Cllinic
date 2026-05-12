@@ -131,15 +131,23 @@
 .footer-social a[aria-label="Twitter"]:hover{background:#1DA1F2;box-shadow:0 8px 20px rgba(29,161,242,.3)}
 .footer-bottom{background:rgba(0,0,0,.3);padding:1.5rem 0;text-align:center;color:rgba(255,255,255,.4);font-size:.82rem;border-top:1px solid rgba(255,255,255,.05)}
 
-/* ── FLOATING ELEMENTS ── */
-.floating-cta{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;display:flex;flex-direction:column;gap:1rem}
-.floating-btn{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;cursor:pointer;transition:all .3s var(--ease-out);box-shadow:0 8px 25px rgba(0,0,0,0.3);border:2px solid rgba(255,255,255,0.2)}
-.floating-btn.whatsapp{background:#25D366}
-.floating-btn.phone{background:var(--royal-blue)}
-.floating-btn:hover{transform:scale(1.1) translateY(-5px)}
+/* ── FLOATING SOCIAL MENU ── */
+.floating-social-menu{position:fixed;bottom:2rem;right:2rem;z-index:999;display:flex;flex-direction:column;align-items:center;gap:.8rem}
+.social-links{display:flex;flex-direction:column;gap:.8rem;opacity:0;visibility:hidden;transform:translateY(20px) scale(0.8);transition:all .4s var(--ease-bounce);pointer-events:none}
+.floating-social-menu.active .social-links{opacity:1;visibility:visible;transform:translateY(0) scale(1);pointer-events:auto}
+.social-btn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,0.2);transition:all .3s var(--ease-out);border:1px solid rgba(255,255,255,0.1)}
+.social-btn:hover{transform:scale(1.1) translateY(-3px)}
+.social-btn.insta{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)}
+.social-btn.fb{background:#1877F2}
+.social-btn.yt{background:#FF0000}
+.social-btn.whatsapp{background:#25D366}
+.social-btn.phone{background:var(--royal-blue)}
+.menu-toggle{width:56px;height:56px;border-radius:50%;background:var(--teal);color:#fff;border:none;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,194,184,0.3);transition:all .4s var(--ease-bounce);z-index:2}
+.floating-social-menu.active .menu-toggle{transform:rotate(45deg);background:var(--orange);box-shadow:0 10px 30px rgba(232,78,27,0.3)}
 @media(max-width:576px){
-    .floating-cta{bottom:1rem;right:1rem;gap:.6rem}
-    .floating-btn{width:46px;height:46px;font-size:1rem}
+    .floating-social-menu{bottom:1.5rem;right:1.5rem}
+    .menu-toggle{width:50px;height:50px;font-size:1.2rem}
+    .social-btn{width:42px;height:42px;font-size:1rem}
 }
 
 /* ── RESPONSIVE ── */

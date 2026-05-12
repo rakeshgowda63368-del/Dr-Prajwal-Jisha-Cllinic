@@ -436,6 +436,25 @@ function initForms(){
   }
 }
 
+/* ── FLOATING SOCIAL MENU ── */
+function initFloatingMenu(){
+  const menuToggle = document.getElementById('menuToggle');
+  const floatingMenu = document.getElementById('floatingMenu');
+  
+  if(menuToggle && floatingMenu){
+    menuToggle.addEventListener('click', () => {
+      floatingMenu.classList.toggle('active');
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if(!floatingMenu.contains(e.target) && floatingMenu.classList.contains('active')){
+        floatingMenu.classList.remove('active');
+      }
+    });
+  }
+}
+
 /* ── INIT ALL ── */
 function init(){
   initNav();
@@ -449,6 +468,7 @@ function init(){
   initTilt();
   initSmoothScroll();
   initForms();
+  initFloatingMenu();
   // GSAP after slight delay to ensure loaded
   setTimeout(initGSAP,100);
 }
