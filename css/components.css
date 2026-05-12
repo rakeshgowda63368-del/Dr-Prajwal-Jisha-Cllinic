@@ -126,9 +126,7 @@
 .footer-social a:hover{transform:translateY(-5px);color:#fff;border-color:transparent}
 .footer-social a[aria-label="Facebook"]:hover{background:#1877F2;box-shadow:0 8px 20px rgba(24,119,242,.3)}
 .footer-social a[aria-label="Instagram"]:hover{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);box-shadow:0 8px 20px rgba(220,39,67,.3)}
-.footer-social a[aria-label="WhatsApp"]:hover{background:#25D366;box-shadow:0 8px 20px rgba(37,211,102,.3)}
 .footer-social a[aria-label="YouTube"]:hover{background:#FF0000;box-shadow:0 8px 20px rgba(255,0,0,.3)}
-.footer-social a[aria-label="Twitter"]:hover{background:#1DA1F2;box-shadow:0 8px 20px rgba(29,161,242,.3)}
 .footer-bottom{background:rgba(0,0,0,.3);padding:1.5rem 0;text-align:center;color:rgba(255,255,255,.4);font-size:.82rem;border-top:1px solid rgba(255,255,255,.05)}
 
 /* ── FLOATING SOCIAL MENU ── */
