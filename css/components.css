@@ -170,7 +170,10 @@
 .tech-grid{grid-template-columns:1fr}
 }
 @media(max-width:576px){
-.testimonial-card{min-width:280px;padding:2rem 1.5rem}
+    .testimonial-card{min-width:270px;padding:1.5rem}
+    .testimonial-card .text{font-size:.88rem;line-height:1.6;margin-bottom:1.2rem}
+    .testimonial-card .quote-icon{font-size:1.8rem;top:15px;right:15px}
+    .testimonials-section{padding:4rem 0}
 .section{padding:4rem 0}
 }
 
