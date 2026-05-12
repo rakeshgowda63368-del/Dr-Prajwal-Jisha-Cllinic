@@ -450,9 +450,21 @@
     }
 
     .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-        align-items: center
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0.5rem;
+        align-items: flex-start;
+        text-align: center
+    }
+
+    .hero-stat h3 {
+        font-size: 1.4rem
+    }
+
+    .hero-stat p {
+        font-size: 0.55rem;
+        letter-spacing: 0.5px;
+        white-space: nowrap
     }
 
     .ribbon-grid {
