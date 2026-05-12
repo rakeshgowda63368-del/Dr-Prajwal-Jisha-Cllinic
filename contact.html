@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Jisha Prime Orthopaedic & Spine Care</title>
+    <meta name="description" content="Get in touch with Jisha Prime Orthopaedic & Spine Care. Visit our clinic in Mysore, call us for appointments, or send us a message for expert medical advice.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        .inner-page-header {
+            background: linear-gradient(135deg, #0B1F3A 0%, #0d2847 100%);
+            padding: 8rem 0 4rem;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .inner-page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 194, 184, 0.1), transparent 70%);
+            border-radius: 50%;
+        }
+        .inner-page-header h1 {
+            color: #fff;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            position: relative;
+            z-index: 1;
+        }
+        .breadcrumb a {
+            color: var(--teal);
+            font-weight: 500;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+        .contact-info-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .contact-detail-card {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 20px;
+            border: 1px solid var(--silver);
+            transition: all 0.4s var(--ease-out);
+        }
+        .contact-detail-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--teal);
+            box-shadow: 0 20px 40px rgba(0,74,173,0.06);
+        }
+        .contact-detail-card i {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 194, 184, 0.1);
+            color: var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .contact-detail-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        .contact-detail-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .contact-form-col {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 32px;
+            border: 1px solid var(--silver);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--deep-blue);
+            font-size: 0.9rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--silver);
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: var(--off-white);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--teal);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(0, 194, 184, 0.1);
+        }
+        textarea.form-control {
+            resize: none;
+        }
+
+        .map-section {
+            border-radius: 32px;
+            overflow: hidden;
+            height: 500px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            border: 8px solid var(--white);
+        }
+
+        @media (max-width: 992px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .contact-form-col {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<header class="header" id="header">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.png" alt="Jisha Prime Logo">
+            <div class="logo-text">
+                <h1>Jisha Prime</h1>
+                <p>Orthopaedic & Spine Care</p>
+            </div>
+        </a>
+        <div class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="contact.html" class="nav-link active">Contact</a>
+            <a href="appointment.html" class="nav-link nav-cta">Book Appointment</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ── PAGE HEADER ── -->
+<section class="inner-page-header">
+    <div class="container">
+        <h1 class="reveal">Get In Touch</h1>
+        <div class="breadcrumb reveal">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <p>Contact Us</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACT SECTION ── -->
+<section class="section" style="background: var(--off-white);">
+    <div class="container">
+        <div class="contact-wrapper">
+            
+            <div class="contact-info-col reveal-left">
+                <span class="section-label">Connect with Us</span>
+                <h2>We're Here to Help You Heal</h2>
+                <p style="margin-bottom: 2rem;">Have questions about our treatments or want to schedule an appointment? Reach out to us through any of these channels.</p>
+                
+                <div class="contact-detail-card">
+                    <i class="fas fa-location-dot"></i>
+                    <div>
+                        <h4>Our Clinic</h4>
+                        <p>Ground floor, Punya Square, M-45,<br>Sayyaji Rao Rd, Devaraja Mohalla,<br>Mandi Mohalla, Mysuru, 570001</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>+91 91870 50960<br>+91 821 234 5678</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail-card">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p>jishaprimeorthocare@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail-card">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Working Hours</h4>
+                        <p>Mon - Sat: 6:00 PM - 10:00 PM<br>Sunday: Closed (Trauma Support 24/7)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-col reveal-right">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.8rem;">Send Us a Message</h3>
+                <form id="contactForm" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" class="form-control" placeholder="How can we help you?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Secure Message <i class="fas fa-paper-plane" style="margin-left: 8px;"></i></button>
+                </form>
+            </div>
+            
+        </div>
+        
+        <div class="map-section reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.1189441113!2d76.6508933758455!3d12.30816668795551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb4162e0867809%3A0x6d20364e7c7ccb7c!2sPunya%20Square%2C%20Sayyaji%20Rao%20Rd%2C%20Devaraja%20Mohalla%2C%20Mandi%20Mohalla%2C%20Mysuru%2C%20Karnataka%20570001!5e0!3m2!1sen!2sin!4v1715494400000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer" id="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col footer-brand">
+                <div class="logo-text" style="margin-bottom:1rem">
+                    <h1>Jisha Prime</h1>
+                    <p style="color:var(--teal);font-size:.75rem;text-transform:uppercase;letter-spacing:2px;font-weight:600">Orthopaedic & Spine Care</p>
+                </div>
+                <p>Dedicated to providing the highest standard of orthopaedic and spine care in Mysore, ensuring our patients return to their lives safely.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/search/top?q=Jisha%20Prime%20Orthopaedic%20%26%20Spine%20Care" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/thespinemechanic07" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/919187050960" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="services.html#spine">Spine Surgery</a></li>
+                    <li><a href="services.html#joint">Joint Replacement</a></li>
+                    <li><a href="services.html#trauma">Trauma & Fracture</a></li>
+                    <li><a href="services.html#sports">Sports Medicine</a></li>
+                    <li><a href="services.html#physio">Physiotherapy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://maps.app.goo.gl/DzccedRnH6jNJnV17" target="_blank" style="color:inherit">
+                            <span>Ground floor, Punya Square, M-45,<br>Sayyaji Rao Rd, Devaraja Mohalla,<br>Mandi Mohalla, Mysuru, KA 570001</span>
+                        </a>
+                    </li>
+                    <li><i class="fas fa-phone-alt"></i><span>+91 91870 50960</span></li>
+                    <li><i class="fas fa-envelope"></i><span>jishaprimeorthocare@gmail.com</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 Jisha Prime Orthopaedic & Spine Care. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Floating CTA -->
+<div class="floating-cta">
+    <a href="https://wa.me/919187050960" target="_blank" class="floating-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:+919187050960" class="floating-btn phone" title="Call Us"><i class="fas fa-phone-alt"></i></a>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

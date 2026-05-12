@@ -1,0 +1,59 @@
+:root {
+  --deep-blue: #0B1F3A;
+  --royal-blue: #004AAD;
+  --sky-blue: #0096FF;
+  --teal: #00C2B8;
+  --gold: #C9A96E;
+  --orange: #E84E1B;
+  --white: #FFFFFF;
+  --off-white: #F8FAFC;
+  --silver: #EAEFF5;
+  --text-dark: #1a2332;
+  --text-mid: #4a5568;
+  --text-light: #718096;
+  --font-head: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --glass-bg: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.12);
+  --glass-light: rgba(255,255,255,0.7);
+  --glass-border-light: rgba(0,74,173,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);color:var(--text-dark);background:var(--white);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-head);font-weight:700;color:var(--deep-blue);line-height:1.15}
+a{text-decoration:none;color:var(--royal-blue);transition:color .3s}
+a:hover{color:var(--teal)}
+ul{list-style:none}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 2rem}
+.section{padding:6rem 0}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-label{color:var(--teal);font-size:.85rem;text-transform:uppercase;letter-spacing:3px;font-weight:600;margin-bottom:.75rem;display:block}
+.section-title{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;position:relative;display:inline-block}
+.section-title::after{content:'';position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);width:60px;height:3px;background:linear-gradient(90deg,var(--teal),var(--royal-blue));border-radius:2px}
+.section-subtitle{color:var(--text-light);font-size:1.1rem;max-width:560px;margin:1rem auto 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.9rem 2.2rem;border-radius:50px;font-family:var(--font-head);font-weight:600;font-size:.95rem;cursor:pointer;transition:all .4s var(--ease-out);border:2px solid transparent;gap:.5rem}
+.btn-primary{background:linear-gradient(135deg,var(--royal-blue),var(--sky-blue));color:var(--white);box-shadow:0 4px 20px rgba(0,74,173,.25)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,74,173,.35);color:#fff}
+.btn-outline{border-color:var(--royal-blue);color:var(--royal-blue);background:transparent}
+.btn-outline:hover{background:var(--royal-blue);color:#fff;transform:translateY(-3px)}
+.btn-teal{background:linear-gradient(135deg,var(--teal),#00a89f);color:#fff;box-shadow:0 4px 20px rgba(0,194,184,.3)}
+.btn-teal:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,194,184,.4);color:#fff}
+.glass-card{background:var(--glass-light);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--glass-border-light);border-radius:24px;padding:2.5rem;transition:all .5s var(--ease-out)}
+.glass-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,74,173,.1)}
+.glass-dark{background:var(--glass-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:24px;padding:2.5rem}
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s var(--ease-out)}
+.reveal.active{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:all .8s var(--ease-out)}
+.reveal-left.active{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:all .8s var(--ease-out)}
+.reveal-right.active{opacity:1;transform:translateX(0)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse-ring{0%{transform:scale(.9);opacity:.6}50%{transform:scale(1.05);opacity:.3}100%{transform:scale(.9);opacity:.6}}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(0,194,184,.2)}50%{box-shadow:0 0 40px rgba(0,194,184,.4)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideInRight{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
