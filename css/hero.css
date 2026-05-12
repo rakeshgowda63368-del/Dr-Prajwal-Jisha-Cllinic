@@ -356,6 +356,16 @@
     color: #fff
 }
 
+@media (min-width: 993px) and (max-width: 1200px) {
+    .hero-spine-container {
+        max-width: 220px;
+        top: -20px;
+    }
+    .hero-content {
+        gap: 2rem;
+    }
+}
+
 /* ── HERO RESPONSIVE ── */
 @media(max-width:992px) {
     .hero-content {
