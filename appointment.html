@@ -286,16 +286,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/main.js"></script>
-<script>
-    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const modal = document.getElementById('successModal');
-        modal.classList.add('show');
-        document.getElementById('closeModalBtn').addEventListener('click', function() {
-            modal.classList.remove('show');
-            e.target.reset();
-        });
-    });
-</script>
 </body>
 </html>

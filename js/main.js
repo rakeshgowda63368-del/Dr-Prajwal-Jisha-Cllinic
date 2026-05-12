@@ -399,6 +399,43 @@ function initSmoothScroll(){
   });
 }
 
+/* ── FORM HANDLING ── */
+function initForms(){
+  const contactForm=document.getElementById('contactForm');
+  const appointmentForm=document.getElementById('appointmentForm');
+  const successModal=document.getElementById('successModal');
+  const closeModalBtn=document.getElementById('closeModalBtn');
+
+  if(contactForm){
+    contactForm.addEventListener('submit',e=>{
+      e.preventDefault();
+      showSuccess();
+      contactForm.reset();
+    });
+  }
+
+  if(appointmentForm){
+    appointmentForm.addEventListener('submit',e=>{
+      e.preventDefault();
+      showSuccess();
+      appointmentForm.reset();
+    });
+  }
+
+  function showSuccess(){
+    if(successModal) successModal.classList.add('show');
+  }
+
+  if(closeModalBtn && successModal){
+    closeModalBtn.addEventListener('click',()=>{
+      successModal.classList.remove('show');
+    });
+    successModal.addEventListener('click',e=>{
+      if(e.target===successModal) successModal.classList.remove('show');
+    });
+  }
+}
+
 /* ── INIT ALL ── */
 function init(){
   initNav();
@@ -411,6 +448,7 @@ function init(){
   initSpineExplore();
   initTilt();
   initSmoothScroll();
+  initForms();
   // GSAP after slight delay to ensure loaded
   setTimeout(initGSAP,100);
 }
