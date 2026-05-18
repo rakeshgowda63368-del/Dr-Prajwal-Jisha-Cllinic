@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rehabilitation & Physiotherapy | Jisha Prime Orthopaedic & Spine Care</title>
+    <meta name="description" content="Expert rehabilitation and physiotherapy services at Jisha Prime in Mysore. Specialized post-surgical rehab, sports injury recovery, pain management, and manual therapy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <style>
+        .inner-page-header {
+            background: linear-gradient(135deg, #0B1F3A 0%, #0d2847 100%);
+            padding: 8rem 0 4rem;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .inner-page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 194, 184, 0.1), transparent 70%);
+            border-radius: 50%;
+        }
+        .inner-page-header h1 {
+            color: #fff;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            position: relative;
+            z-index: 1;
+        }
+        .breadcrumb a {
+            color: var(--teal);
+            font-weight: 500;
+        }
+        .breadcrumb span {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ── PHYSIO OVERVIEW ── */
+        .physio-overview {
+            padding: 7rem 0;
+            background: var(--white);
+        }
+        .physio-overview-wrapper {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+        .physio-img-col {
+            flex: 1;
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,74,173,0.12);
+            height: 450px;
+        }
+        .physio-img-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease-out);
+        }
+        .physio-overview-wrapper:hover .physio-img-col img {
+            transform: scale(1.05);
+        }
+        .physio-content-col {
+            flex: 1;
+        }
+        .physio-content-col h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--deep-blue);
+        }
+        .physio-content-col p {
+            color: var(--text-mid);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── MODALITIES GRID (PREMIUM CARDS) ── */
+        .physio-modalities {
+            padding: 7rem 0;
+            background: var(--off-white);
+        }
+        .modalities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        .modality-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            border: 1px solid var(--silver);
+            transition: all 0.4s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .modality-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, var(--teal), var(--royal-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--ease-out);
+        }
+        .modality-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,74,173,0.12);
+            border-color: transparent;
+        }
+        .modality-card:hover::before {
+            transform: scaleX(1);
+        }
+        .modality-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: rgba(0, 194, 184, 0.1);
+            color: var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.4s var(--ease-out);
+        }
+        .modality-card:hover .modality-icon {
+            background: linear-gradient(135deg, var(--teal), var(--royal-blue));
+            color: var(--white);
+            transform: scale(1.1) rotate(5deg);
+        }
+        .modality-card h3 {
+            font-size: 1.5rem;
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .modality-card p {
+            color: var(--text-mid);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .modality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--royal-blue);
+            background: rgba(0, 74, 173, 0.08);
+            padding: 6px 14px;
+            border-radius: 50px;
+            align-self: flex-start;
+        }
+
+        /* ── REHAB PROCESS ── */
+        .physio-process {
+            padding: 7rem 0;
+            background: var(--white);
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+        .process-step {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--off-white);
+            border-radius: 24px;
+            border: 1px solid var(--silver);
+            position: relative;
+            transition: all 0.4s var(--ease-out);
+        }
+        .process-step:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            background: var(--white);
+            border-color: var(--teal);
+        }
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal), var(--royal-blue));
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 194, 184, 0.2);
+        }
+        .process-step h3 {
+            font-size: 1.3rem;
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .process-step p {
+            color: var(--text-mid);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 992px) {
+            .physio-overview-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+            .physio-img-col {
+                width: 100%;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<header class="header" id="header">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.png" alt="Jisha Prime Logo">
+            <div class="logo-text">
+                <h1>Jisha Prime</h1>
+                <p>Orthopaedic & Spine Care</p>
+            </div>
+        </a>
+        <div class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link active">Services</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="appointment.html" class="nav-link nav-cta">Book Appointment</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ── PAGE HEADER ── -->
+<section class="inner-page-header">
+    <div class="container">
+        <h1 class="reveal">Rehabilitation & Physiotherapy</h1>
+        <div class="breadcrumb reveal">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="services.html">Services</a>
+            <span>/</span>
+            <p>Physiotherapy</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── PHYSIO OVERVIEW ── -->
+<section class="physio-overview">
+    <div class="container">
+        <div class="physio-overview-wrapper">
+            <div class="physio-img-col reveal-left">
+                <img src="assets/physio.png" alt="Advanced Physiotherapy at Jisha Prime">
+            </div>
+            <div class="physio-content-col reveal-right">
+                <span class="section-label">Holistic Recovery</span>
+                <h2>Restoring Strength, Mobility & Function</h2>
+                <p>At Jisha Prime Orthopaedic & Spine Care, we believe that expert surgery is only the first step toward full recovery. Our specialized Rehabilitation and Physiotherapy department operates hand-in-hand with Dr. Prajwal Narayan to provide seamless, evidence-based physical therapy.</p>
+                <p>Whether you are recovering from a complex spine procedure, a joint replacement, or a sports injury, our expert physical therapists design customized protocols tailored to your specific biomechanical needs and lifestyle goals.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <i class="fas fa-user-md" style="font-size: 2rem; color: var(--teal);"></i>
+                        <div>
+                            <h4 style="color: var(--deep-blue); font-size: 1.1rem; margin-bottom: 0.2rem;">Expert Therapists</h4>
+                            <p style="color: var(--text-mid); font-size: 0.85rem; margin: 0;">Highly trained in advanced orthopedic rehab</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <i class="fas fa-heart-pulse" style="font-size: 2rem; color: var(--teal);"></i>
+                        <div>
+                            <h4 style="color: var(--deep-blue); font-size: 1.1rem; margin-bottom: 0.2rem;">Modern Modalities</h4>
+                            <p style="color: var(--text-mid); font-size: 0.85rem; margin: 0;">Equipped with cutting-edge physical therapy tools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── MODALITIES GRID ── -->
+<section class="physio-modalities">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">Targeted Treatments</span>
+            <h2 class="section-title">Specialized Therapy Modalities</h2>
+            <p class="section-subtitle">Comprehensive rehabilitation programs designed for optimal musculoskeletal health.</p>
+        </div>
+
+        <div class="modalities-grid">
+            <!-- Modality 1 -->
+            <div class="modality-card reveal">
+                <div>
+                    <div class="modality-icon"><i class="fas fa-person-walking-with-cane"></i></div>
+                    <h3>Post-Surgical Rehab</h3>
+                    <p>Crucial physical therapy following total knee replacements, hip arthroplasty, and complex spine surgeries to ensure rapid healing, prevent scar tissue buildup, and restore full range of motion.</p>
+                </div>
+                <div class="modality-badge"><i class="fas fa-shield-check"></i> Guided Recovery</div>
+            </div>
+
+            <!-- Modality 2 -->
+            <div class="modality-card reveal">
+                <div>
+                    <div class="modality-icon"><i class="fas fa-person-running"></i></div>
+                    <h3>Sports Injury Management</h3>
+                    <p>Aggressive and targeted rehabilitation for ACL tears, rotator cuff injuries, meniscus sprains, and athletic trauma. Focused on safely returning athletes to peak performance.</p>
+                </div>
+                <div class="modality-badge"><i class="fas fa-shield-check"></i> Athletic Care</div>
+            </div>
+
+            <!-- Modality 3 -->
+            <div class="modality-card reveal">
+                <div>
+                    <div class="modality-icon"><i class="fas fa-wave-square"></i></div>
+                    <h3>Spinal Decompression & Core</h3>
+                    <p>Specialized physical therapy targeting slipped discs, sciatica, and chronic lower back pain. Emphasizes core stabilization, spinal alignment, and mechanical decompression techniques.</p>
+                </div>
+                <div class="modality-badge"><i class="fas fa-shield-check"></i> Spine Relief</div>
+            </div>
+
+            <!-- Modality 4 -->
+            <div class="modality-card reveal">
+                <div>
+                    <div class="modality-icon"><i class="fas fa-hand-holding-medical"></i></div>
+                    <h3>Advanced Manual Therapy</h3>
+                    <p>Hands-on joint mobilization, myofascial release, and soft tissue manipulation performed by expert therapists to alleviate stiffness, improve circulation, and reduce localized pain.</p>
+                </div>
+                <div class="modality-badge"><i class="fas fa-shield-check"></i> Hands-on Care</div>
+            </div>
+
+            <!-- Modality 5 -->
+            <div class="modality-card reveal">
+                <div>
+                    <div class="modality-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Electrotherapy & Pain Relief</h3>
+                    <p>Utilization of advanced modalities including TENS (Transcutaneous Electrical Nerve Stimulation), therapeutic ultrasound, and laser therapy for deep cellular healing and acute pain management.</p>
+                </div>
+                <div class="modality-badge"><i class="fas fa-shield-check"></i> Pain Management</div>
+            </div>
+
+            <!-- Modality 6 -->
+            <div class="modality-card reveal">
+                <div>
+                    <div class="modality-icon"><i class="fas fa-chair"></i></div>
+                    <h3>Ergonomic & Postural Counseling</h3>
+                    <p>Comprehensive posture evaluation and customized ergonomic adjustments for daily living and workplace environments to prevent chronic strain and preserve spinal health.</p>
+                </div>
+                <div class="modality-badge"><i class="fas fa-shield-check"></i> Preventive Care</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── REHAB PROCESS ── -->
+<section class="physio-process">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">Your Recovery Journey</span>
+            <h2 class="section-title">Our 4-Step Rehabilitation Process</h2>
+            <p class="section-subtitle">A structured, proven pathway from initial pain to long-term physical wellness.</p>
+        </div>
+
+        <div class="process-grid">
+            <div class="process-step reveal">
+                <div class="step-number">1</div>
+                <h3>Detailed Assessment</h3>
+                <p>Thorough evaluation of your range of motion, muscle strength, joint stability, and biomechanical alignment by our expert team.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-number">2</div>
+                <h3>Customized Protocol</h3>
+                <p>Creation of a tailored physical therapy regimen designed specifically around your surgical history, injury severity, and lifestyle.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-number">3</div>
+                <h3>Active Therapy</h3>
+                <p>One-on-one guided rehabilitation sessions utilizing advanced exercise equipment, manual techniques, and electrotherapy.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-number">4</div>
+                <h3>Long-Term Maintenance</h3>
+                <p>Empowering you with customized home exercise programs and ergonomic guidance to prevent re-injury and maintain peak mobility.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA SECTION ── -->
+<section class="cta-section">
+    <div class="container">
+        <h2 class="reveal">Start Your Dedicated Recovery Today</h2>
+        <p class="reveal">Experience expert physical therapy and personalized rehabilitation at Jisha Prime.</p>
+        <div class="cta-buttons reveal">
+            <a href="appointment.html" class="btn-white"><i class="fas fa-calendar-check"></i> Book Consultation</a>
+            <a href="https://wa.me/919187050960" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer" id="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col footer-brand">
+                <div class="logo-text" style="margin-bottom:1rem">
+                    <h1>Jisha Prime</h1>
+                    <p style="color:var(--teal);font-size:.75rem;text-transform:uppercase;letter-spacing:2px;font-weight:600">Orthopaedic & Spine Care</p>
+                </div>
+                <p>Dedicated to providing the highest standard of orthopaedic and spine care in Mysore, ensuring our patients return to their lives safely.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/search/top?q=Jisha%20Prime%20Orthopaedic%20%26%20Spine%20Care" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/thespinemechanic07" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="services.html#spine">Endoscopic Spine Surgery</a></li>
+                    <li><a href="services.html#joint">Joint Replacement</a></li>
+                    <li><a href="services.html#trauma">Trauma & Fracture</a></li>
+                    <li><a href="services.html#sports">Sports Medicine</a></li>
+                    <li><a href="services.html#physio">Physiotherapy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://maps.app.goo.gl/DzccedRnH6jNJnV17" target="_blank" style="color:inherit">
+                            <span>Ground floor, Punya Square, M-45,<br>Sayyaji Rao Rd, Devaraja Mohalla,<br>Mandi Mohalla, Mysuru, Karnataka 570001</span>
+                        </a>
+                    </li>
+                    <li><i class="fas fa-phone-alt"></i><a href="tel:+919187050960" style="color:inherit;text-decoration:none"><span>+91 91870 50960</span></a></li>
+                    <li><i class="fas fa-envelope"></i><span>jishaprimeorthocare@gmail.com</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 Jisha Prime Orthopaedic & Spine Care. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Floating Social Menu -->
+<div class="floating-social-menu" id="floatingMenu">
+    <div class="social-links">
+        <a href="https://www.instagram.com/thespinemechanic07" target="_blank" class="social-btn insta" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/search/top?q=Jisha%20Prime%20Orthopaedic%20%26%20Spine%20Care" target="_blank" class="social-btn fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com" target="_blank" class="social-btn yt" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="tel:+919187050960" class="social-btn phone" title="Call Us"><i class="fas fa-phone-alt"></i></a>
+    </div>
+    <button class="menu-toggle" id="menuToggle"><i class="fas fa-plus"></i></button>
+</div>
+
+<!-- Fixed WhatsApp (Left) -->
+<div class="fixed-whatsapp">
+    <a href="https://wa.me/919187050960" target="_blank" class="whatsapp-btn-left" aria-label="WhatsApp Us">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

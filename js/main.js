@@ -45,7 +45,7 @@ function initReveal(){
         obs.unobserve(e.target);
       }
     });
-  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  },{threshold:0.1,rootMargin:'0px 0px 150px 0px'});
   els.forEach(el=>obs.observe(el));
 }
 
@@ -107,8 +107,29 @@ function initTestimonials(){
   let scrollPos=0;
   const speed=0.5;
   let paused=false;
+  let touchTimeout;
+
   track.addEventListener('mouseenter',()=>paused=true);
-  track.addEventListener('mouseleave',()=>paused=false);
+  track.addEventListener('mouseleave',()=>{
+    paused=false;
+    scrollPos=track.scrollLeft;
+  });
+
+  track.addEventListener('touchstart',()=>{
+    paused=true;
+    clearTimeout(touchTimeout);
+  });
+  track.addEventListener('touchend',()=>{
+    touchTimeout=setTimeout(()=>{
+      paused=false;
+      scrollPos=track.scrollLeft;
+    },2000);
+  });
+
+  track.addEventListener('scroll',()=>{
+    if(paused) scrollPos=track.scrollLeft;
+  });
+
   function slide(){
     if(!paused){
       scrollPos+=speed;
@@ -118,6 +139,24 @@ function initTestimonials(){
     requestAnimationFrame(slide);
   }
   requestAnimationFrame(slide);
+}
+
+/* ── CLINIC IMAGE CAROUSEL ── */
+function initClinicCarousel(){
+  const sliders = document.querySelectorAll('.clinic-slider');
+  if(!sliders.length) return;
+  
+  sliders.forEach(slider => {
+    const slides = slider.querySelectorAll('.slide');
+    if(slides.length < 2) return;
+    
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  });
 }
 
 /* ── GSAP ANIMATIONS ── */
@@ -371,7 +410,30 @@ function initSpineExplore(){
 
 /* ── 3D TILT CARDS ── */
 function initTilt(){
-  document.querySelectorAll('.specialty-card,.tech-card').forEach(card=>{
+  // Universal 3D Tilt for Specialties
+  document.querySelectorAll('.specialty-parent').forEach(parent=>{
+    const card = parent.querySelector('.specialty-card');
+    if(!card) return;
+    
+    parent.addEventListener('mousemove',e=>{
+      const rect=parent.getBoundingClientRect();
+      const x=(e.clientX-rect.left)/rect.width-0.5; // -0.5 to 0.5
+      const y=(e.clientY-rect.top)/rect.height-0.5;
+      
+      // More aggressive rotation for that "Uiverse" feel
+      const rotX = y * -25; 
+      const rotY = x * 25;
+      
+      card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+    });
+    
+    parent.addEventListener('mouseleave',()=>{
+      card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+  });
+
+  // Simple Tilt for Tech Cards
+  document.querySelectorAll('.tech-card').forEach(card=>{
     card.addEventListener('mousemove',e=>{
       const rect=card.getBoundingClientRect();
       const x=(e.clientX-rect.left)/rect.width-0.5;
@@ -469,6 +531,7 @@ function init(){
   initSmoothScroll();
   initForms();
   initFloatingMenu();
+  initClinicCarousel();
   // GSAP after slight delay to ensure loaded
   setTimeout(initGSAP,100);
 }
