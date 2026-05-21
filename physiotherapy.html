@@ -14,48 +14,6 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <style>
-        .inner-page-header {
-            background: linear-gradient(135deg, #0B1F3A 0%, #0d2847 100%);
-            padding: 8rem 0 4rem;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-        .inner-page-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(0, 194, 184, 0.1), transparent 70%);
-            border-radius: 50%;
-        }
-        .inner-page-header h1 {
-            color: #fff;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-            position: relative;
-            z-index: 1;
-        }
-        .breadcrumb a {
-            color: var(--teal);
-            font-weight: 500;
-        }
-        .breadcrumb span {
-            color: rgba(255, 255, 255, 0.3);
-        }
-
         /* ── PHYSIO OVERVIEW ── */
         .physio-overview {
             padding: 7rem 0;
@@ -248,6 +206,11 @@
                 height: 350px;
             }
         }
+        @media (max-width: 576px) {
+            .physio-features-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -284,7 +247,7 @@
             <span>/</span>
             <a href="services.html">Services</a>
             <span>/</span>
-            <p>Physiotherapy</p>
+            <span>Physiotherapy</span>
         </div>
     </div>
 </section>
@@ -302,7 +265,7 @@
                 <p>At Jisha Prime Orthopaedic & Spine Care, we believe that expert surgery is only the first step toward full recovery. Our specialized Rehabilitation and Physiotherapy department operates hand-in-hand with Dr. Prajwal Narayan to provide seamless, evidence-based physical therapy.</p>
                 <p>Whether you are recovering from a complex spine procedure, a joint replacement, or a sports injury, our expert physical therapists design customized protocols tailored to your specific biomechanical needs and lifestyle goals.</p>
                 
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem;">
+                <div class="physio-features-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem;">
                     <div style="display: flex; align-items: center; gap: 1rem;">
                         <i class="fas fa-user-md" style="font-size: 2rem; color: var(--teal);"></i>
                         <div>

@@ -14,45 +14,6 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <style>
-        .inner-page-header {
-            background: linear-gradient(135deg, #0B1F3A 0%, #0d2847 100%);
-            padding: 8rem 0 4rem;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-        .inner-page-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(0, 194, 184, 0.1), transparent 70%);
-            border-radius: 50%;
-        }
-        .inner-page-header h1 {
-            color: #fff;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-            position: relative;
-            z-index: 1;
-        }
-        .breadcrumb a {
-            color: var(--teal);
-            font-weight: 500;
-        }
-
         .appointment-wrapper {
             max-width: 900px;
             margin: -4rem auto 5rem;
@@ -88,6 +49,10 @@
         }
 
         @media (max-width: 768px) {
+            .appointment-wrapper {
+                margin-top: -2rem;
+                margin-bottom: 3rem;
+            }
             .appointment-form-card {
                 padding: 2rem;
             }
@@ -130,7 +95,7 @@
         <div class="breadcrumb reveal">
             <a href="index.html">Home</a>
             <span>/</span>
-            <p>Appointment</p>
+            <span>Appointment</span>
         </div>
     </div>
 </section>
