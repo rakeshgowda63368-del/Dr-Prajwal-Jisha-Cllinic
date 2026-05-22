@@ -416,6 +416,19 @@
         transform: translateX(0)
     }
 
+    .nav-menu .nav-link {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.95);
+        padding: 0.8rem 0;
+    }
+
+    .nav-menu .nav-cta {
+        margin-top: 1rem;
+        padding: 0.8rem 2.5rem;
+        font-size: 1rem;
+    }
+
     .mobile-toggle {
         display: block;
         z-index: 1002
