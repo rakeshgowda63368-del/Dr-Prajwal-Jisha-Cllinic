@@ -479,6 +479,26 @@ function initForms(){
   if(appointmentForm){
     appointmentForm.addEventListener('submit',e=>{
       e.preventDefault();
+      
+      const name = document.getElementById('fullName').value;
+      const phoneVal = document.getElementById('phone').value;
+      const dateVal = document.getElementById('date').value;
+      const serviceSelect = document.getElementById('service');
+      const serviceVal = serviceSelect ? serviceSelect.options[serviceSelect.selectedIndex].text : '';
+      const reasonVal = document.getElementById('reason').value;
+
+      const message = `Hello Jisha Prime, I would like to book an appointment.\n\n` +
+                      `*Name:* ${name}\n` +
+                      `*Phone:* ${phoneVal}\n` +
+                      `*Preferred Date:* ${dateVal}\n` +
+                      `*Service:* ${serviceVal}\n` +
+                      `*Reason:* ${reasonVal}`;
+
+      const whatsappUrl = `https://wa.me/919187050960?text=${encodeURIComponent(message)}`;
+      
+      // Open WhatsApp in a new tab/window
+      window.open(whatsappUrl, '_blank');
+
       showSuccess();
       appointmentForm.reset();
     });
