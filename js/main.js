@@ -551,6 +551,31 @@ function initForms(){
     });
   }
 
+  // Flatpickr Datepicker Initialization
+  const dateInput = document.getElementById('date');
+  if (dateInput && typeof flatpickr !== 'undefined') {
+    flatpickr(dateInput, {
+      dateFormat: "d M Y",
+      minDate: "today",
+      disable: [
+        function(date) {
+          // Disable Sundays (0 = Sunday)
+          return date.getDay() === 0;
+        }
+      ],
+      onChange: function(selectedDates, dateStr, instance) {
+        const parent = instance.element.closest('.premium-field');
+        if (parent) {
+          if (dateStr) {
+            parent.classList.add('has-value');
+          } else {
+            parent.classList.remove('has-value');
+          }
+        }
+      }
+    });
+  }
+
   if(contactForm){
     contactForm.addEventListener('submit',e=>{
       e.preventDefault();
@@ -561,6 +586,14 @@ function initForms(){
 
   if(appointmentForm){
     appointmentForm.addEventListener('reset', () => {
+      // Clear datepicker parent class
+      const dateInputEl = document.getElementById('date');
+      if (dateInputEl) {
+        const dateParent = dateInputEl.closest('.premium-field');
+        if (dateParent) {
+          dateParent.classList.remove('has-value');
+        }
+      }
       if (selectWrapper) {
         const triggerText = selectWrapper.querySelector('.custom-select-text');
         const options = selectWrapper.querySelectorAll('.custom-select-option');

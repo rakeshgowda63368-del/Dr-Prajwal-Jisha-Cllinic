@@ -1044,3 +1044,92 @@ textarea.form-control {
         grid-template-columns: 1fr !important;
     }
 }
+
+/* ── CUSTOM FLATPICKR STYLING OVERRIDES ── */
+.flatpickr-calendar {
+    background: var(--white) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 40px rgba(0, 74, 173, 0.12) !important;
+    border: 1px solid var(--silver) !important;
+    font-family: var(--font-body) !important;
+    padding: 10px !important;
+}
+.flatpickr-months {
+    padding: 5px 0 !important;
+}
+.flatpickr-months .flatpickr-month {
+    color: var(--deep-blue) !important;
+    fill: var(--deep-blue) !important;
+}
+.flatpickr-months .flatpickr-prev-month, 
+.flatpickr-months .flatpickr-next-month {
+    color: var(--deep-blue) !important;
+    fill: var(--deep-blue) !important;
+    top: 15px !important;
+    padding: 10px !important;
+}
+.flatpickr-months .flatpickr-prev-month:hover, 
+.flatpickr-months .flatpickr-next-month:hover {
+    color: var(--teal) !important;
+    fill: var(--teal) !important;
+}
+.flatpickr-current-month {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+}
+.flatpickr-current-month .numInputWrapper span.arrowUp:after {
+    border-bottom-color: var(--deep-blue) !important;
+}
+.flatpickr-current-month .numInputWrapper span.arrowDown:after {
+    border-top-color: var(--deep-blue) !important;
+}
+.flatpickr-weekday {
+    color: var(--text-mid) !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+}
+.flatpickr-day {
+    border-radius: 10px !important;
+    color: var(--text-dark) !important;
+    font-weight: 500 !important;
+    margin: 2px 0 !important;
+    transition: all 0.2s var(--ease-out) !important;
+}
+.flatpickr-day.today {
+    border-color: var(--teal) !important;
+    color: var(--teal) !important;
+    background: rgba(0, 194, 184, 0.05) !important;
+}
+.flatpickr-day.today:hover {
+    background: var(--teal) !important;
+    color: var(--white) !important;
+    border-color: transparent !important;
+}
+.flatpickr-day.selected, 
+.flatpickr-day.selected:focus, 
+.flatpickr-day.selected:hover,
+.flatpickr-day.prevMonthDay.selected,
+.flatpickr-day.nextMonthDay.selected {
+    background: linear-gradient(135deg, var(--teal), var(--royal-blue)) !important;
+    border-color: transparent !important;
+    color: var(--white) !important;
+    box-shadow: 0 5px 15px rgba(0, 74, 173, 0.2) !important;
+}
+.flatpickr-day:hover,
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover,
+.flatpickr-day.today:hover {
+    background: rgba(0, 194, 184, 0.08) !important;
+    color: var(--teal) !important;
+    border-color: transparent !important;
+}
+.flatpickr-day.disabled, 
+.flatpickr-day.disabled:hover {
+    color: rgba(0, 0, 0, 0.15) !important;
+    background: transparent !important;
+    cursor: not-allowed !important;
+}
+.datepicker-input {
+    cursor: pointer !important;
+}
+
