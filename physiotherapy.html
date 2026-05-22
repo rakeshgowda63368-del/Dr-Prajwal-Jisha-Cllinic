@@ -13,205 +13,7 @@
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="icon" type="image/png" href="assets/logo.png">
-    <style>
-        /* ── PHYSIO OVERVIEW ── */
-        .physio-overview {
-            padding: 7rem 0;
-            background: var(--white);
-        }
-        .physio-overview-wrapper {
-            display: flex;
-            gap: 4rem;
-            align-items: center;
-        }
-        .physio-img-col {
-            flex: 1;
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,74,173,0.12);
-            height: 450px;
-        }
-        .physio-img-col img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s var(--ease-out);
-        }
-        .physio-overview-wrapper:hover .physio-img-col img {
-            transform: scale(1.05);
-        }
-        .physio-content-col {
-            flex: 1;
-        }
-        .physio-content-col h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--deep-blue);
-        }
-        .physio-content-col p {
-            color: var(--text-mid);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
 
-        /* ── MODALITIES GRID (PREMIUM CARDS) ── */
-        .physio-modalities {
-            padding: 7rem 0;
-            background: var(--off-white);
-        }
-        .modalities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-        .modality-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 3rem 2.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-            border: 1px solid var(--silver);
-            transition: all 0.4s var(--ease-out);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .modality-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(135deg, var(--teal), var(--royal-blue));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s var(--ease-out);
-        }
-        .modality-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,74,173,0.12);
-            border-color: transparent;
-        }
-        .modality-card:hover::before {
-            transform: scaleX(1);
-        }
-        .modality-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            background: rgba(0, 194, 184, 0.1);
-            color: var(--teal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            transition: all 0.4s var(--ease-out);
-        }
-        .modality-card:hover .modality-icon {
-            background: linear-gradient(135deg, var(--teal), var(--royal-blue));
-            color: var(--white);
-            transform: scale(1.1) rotate(5deg);
-        }
-        .modality-card h3 {
-            font-size: 1.5rem;
-            color: var(--deep-blue);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        .modality-card p {
-            color: var(--text-mid);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-        .modality-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--royal-blue);
-            background: rgba(0, 74, 173, 0.08);
-            padding: 6px 14px;
-            border-radius: 50px;
-            align-self: flex-start;
-        }
-
-        /* ── REHAB PROCESS ── */
-        .physio-process {
-            padding: 7rem 0;
-            background: var(--white);
-        }
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-            position: relative;
-        }
-        .process-step {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            background: var(--off-white);
-            border-radius: 24px;
-            border: 1px solid var(--silver);
-            position: relative;
-            transition: all 0.4s var(--ease-out);
-        }
-        .process-step:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-            background: var(--white);
-            border-color: var(--teal);
-        }
-        .step-number {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--teal), var(--royal-blue));
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 10px 20px rgba(0, 194, 184, 0.2);
-        }
-        .process-step h3 {
-            font-size: 1.3rem;
-            color: var(--deep-blue);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        .process-step p {
-            color: var(--text-mid);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 992px) {
-            .physio-overview-wrapper {
-                flex-direction: column;
-                text-align: center;
-            }
-            .physio-img-col {
-                width: 100%;
-                height: 350px;
-            }
-        }
-        @media (max-width: 576px) {
-            .physio-features-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -264,20 +66,19 @@
                 <h2>Restoring Strength, Mobility & Function</h2>
                 <p>At Jisha Prime Orthopaedic & Spine Care, we believe that expert surgery is only the first step toward full recovery. Our specialized Rehabilitation and Physiotherapy department operates hand-in-hand with Dr. Prajwal Narayan to provide seamless, evidence-based physical therapy.</p>
                 <p>Whether you are recovering from a complex spine procedure, a joint replacement, or a sports injury, our expert physical therapists design customized protocols tailored to your specific biomechanical needs and lifestyle goals.</p>
-                
-                <div class="physio-features-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem;">
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <i class="fas fa-user-md" style="font-size: 2rem; color: var(--teal);"></i>
+                <div class="physio-features-grid">
+                    <div class="physio-feature-item">
+                        <i class="fas fa-user-md physio-feature-icon"></i>
                         <div>
-                            <h4 style="color: var(--deep-blue); font-size: 1.1rem; margin-bottom: 0.2rem;">Expert Therapists</h4>
-                            <p style="color: var(--text-mid); font-size: 0.85rem; margin: 0;">Highly trained in advanced orthopedic rehab</p>
+                            <h4 class="physio-feature-title">Expert Therapists</h4>
+                            <p class="physio-feature-desc">Highly trained in advanced orthopedic rehab</p>
                         </div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <i class="fas fa-heart-pulse" style="font-size: 2rem; color: var(--teal);"></i>
+                    <div class="physio-feature-item">
+                        <i class="fas fa-heart-pulse physio-feature-icon"></i>
                         <div>
-                            <h4 style="color: var(--deep-blue); font-size: 1.1rem; margin-bottom: 0.2rem;">Modern Modalities</h4>
-                            <p style="color: var(--text-mid); font-size: 0.85rem; margin: 0;">Equipped with cutting-edge physical therapy tools</p>
+                            <h4 class="physio-feature-title">Modern Modalities</h4>
+                            <p class="physio-feature-desc">Equipped with cutting-edge physical therapy tools</p>
                         </div>
                     </div>
                 </div>
