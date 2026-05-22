@@ -468,6 +468,89 @@ function initForms(){
   const successModal=document.getElementById('successModal');
   const closeModalBtn=document.getElementById('closeModalBtn');
 
+  // Phone Number Formatting & Validation (10 digits starting with 6,7,8,9)
+  const phoneInputs = document.querySelectorAll('input[type="tel"]');
+  phoneInputs.forEach(input => {
+    input.addEventListener('keypress', e => {
+      if (e.key < '0' || e.key > '9') {
+        e.preventDefault();
+      }
+    });
+
+    input.addEventListener('input', e => {
+      let val = input.value.replace(/\D/g, '');
+      if (val.length > 10) {
+        val = val.substring(0, 10);
+      }
+      input.value = val;
+
+      if (val.length > 0 && !/^[6-9]/.test(val)) {
+        input.setCustomValidity('Phone number must start with 6, 7, 8, or 9.');
+      } else if (val.length > 0 && val.length < 10) {
+        input.setCustomValidity('Phone number must be exactly 10 digits.');
+      } else {
+        input.setCustomValidity('');
+      }
+    });
+  });
+
+  // Custom Select Dropdown logic
+  const selectWrapper = document.getElementById('customServiceSelect');
+  if (selectWrapper) {
+    const trigger = selectWrapper.querySelector('.custom-select-trigger');
+    const triggerText = selectWrapper.querySelector('.custom-select-text');
+    const options = selectWrapper.querySelectorAll('.custom-select-option');
+    const hiddenSelect = selectWrapper.querySelector('.hidden-select');
+
+    triggerText.textContent = "Select Service *";
+
+    trigger.addEventListener('click', e => {
+      e.stopPropagation();
+      selectWrapper.classList.toggle('active');
+    });
+
+    trigger.addEventListener('keydown', e => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        e.stopPropagation();
+        selectWrapper.classList.toggle('active');
+      }
+    });
+
+    options.forEach(opt => {
+      opt.addEventListener('click', e => {
+        e.stopPropagation();
+        const val = opt.getAttribute('data-value');
+        const text = opt.textContent;
+
+        hiddenSelect.value = val;
+        hiddenSelect.setAttribute('value', val);
+        triggerText.textContent = text;
+        triggerText.style.color = 'var(--deep-blue)';
+
+        options.forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+
+        selectWrapper.classList.add('has-value');
+        selectWrapper.classList.remove('active');
+
+        hiddenSelect.dispatchEvent(new Event('change'));
+      });
+    });
+
+    document.addEventListener('click', e => {
+      if (!selectWrapper.contains(e.target)) {
+        selectWrapper.classList.remove('active');
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        selectWrapper.classList.remove('active');
+      }
+    });
+  }
+
   if(contactForm){
     contactForm.addEventListener('submit',e=>{
       e.preventDefault();
@@ -477,6 +560,23 @@ function initForms(){
   }
 
   if(appointmentForm){
+    appointmentForm.addEventListener('reset', () => {
+      if (selectWrapper) {
+        const triggerText = selectWrapper.querySelector('.custom-select-text');
+        const options = selectWrapper.querySelectorAll('.custom-select-option');
+        const hiddenSelect = selectWrapper.querySelector('.hidden-select');
+        
+        triggerText.textContent = "Select Service *";
+        triggerText.style.color = '';
+        selectWrapper.classList.remove('has-value', 'active');
+        options.forEach(o => o.classList.remove('selected'));
+        if (hiddenSelect) {
+          hiddenSelect.value = '';
+          hiddenSelect.removeAttribute('value');
+        }
+      }
+    });
+
     appointmentForm.addEventListener('submit',e=>{
       e.preventDefault();
       
@@ -484,6 +584,16 @@ function initForms(){
       const phoneVal = document.getElementById('phone').value;
       const dateVal = document.getElementById('date').value;
       const serviceSelect = document.getElementById('service');
+      
+      if (serviceSelect && !serviceSelect.value) {
+        if (selectWrapper) {
+          selectWrapper.classList.add('active');
+          const trigger = selectWrapper.querySelector('.custom-select-trigger');
+          if (trigger) trigger.focus();
+        }
+        return;
+      }
+
       const serviceVal = serviceSelect ? serviceSelect.options[serviceSelect.selectedIndex].text : '';
       const reasonVal = document.getElementById('reason').value;
 
@@ -496,7 +606,6 @@ function initForms(){
 
       const whatsappUrl = `https://wa.me/919187050960?text=${encodeURIComponent(message)}`;
       
-      // Open WhatsApp in a new tab/window
       window.open(whatsappUrl, '_blank');
 
       showSuccess();

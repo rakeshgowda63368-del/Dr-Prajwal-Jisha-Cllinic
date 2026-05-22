@@ -76,7 +76,7 @@
                         </div>
                         <div class="premium-field">
                             <span class="field-icon"><i class="fas fa-phone"></i></span>
-                            <input type="tel" id="phone" name="phone" required placeholder=" ">
+                            <input type="tel" id="phone" name="phone" required placeholder=" " pattern="[6-9][0-9]{9}" maxlength="10" minlength="10" inputmode="numeric" title="Phone number must start with 6, 7, 8, or 9 and be exactly 10 digits">
                             <label for="phone">Phone Number *</label>
                             <div class="field-line"></div>
                         </div>
@@ -89,20 +89,29 @@
                             <label for="date">Preferred Date *</label>
                             <div class="field-line"></div>
                         </div>
-                        <div class="premium-field">
+                        <div class="premium-field custom-select-wrapper" id="customServiceSelect">
                             <span class="field-icon"><i class="fas fa-stethoscope"></i></span>
-                            <select id="service" name="service" required>
+                            <select id="service" name="service" required class="hidden-select">
                                 <option value="" disabled selected hidden></option>
                                 <option value="spine">Spine Consultation</option>
                                 <option value="joint">Joint Replacement</option>
-                                <option value="trauma">Trauma & Fracture</option>
                                 <option value="sports">Sports Injury</option>
                                 <option value="physio">Physiotherapy</option>
                                 <option value="general">General Ortho</option>
                             </select>
+                            <div class="custom-select-trigger" tabindex="0">
+                                <span class="custom-select-text"></span>
+                            </div>
+                            <div class="custom-select-options">
+                                <div class="custom-select-option" data-value="spine">Spine Consultation</div>
+                                <div class="custom-select-option" data-value="joint">Joint Replacement</div>
+                                <div class="custom-select-option" data-value="sports">Sports Injury</div>
+                                <div class="custom-select-option" data-value="physio">Physiotherapy</div>
+                                <div class="custom-select-option" data-value="general">General Ortho</div>
+                            </div>
                             <label for="service">Select Service *</label>
                             <div class="field-line"></div>
-                            <i class="fas fa-chevron-down" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: var(--teal); font-size: 0.8rem; pointer-events: none;"></i>
+                            <i class="fas fa-chevron-down select-chevron"></i>
                         </div>
                     </div>
 
