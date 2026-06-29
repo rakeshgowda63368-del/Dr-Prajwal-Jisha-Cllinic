@@ -180,6 +180,14 @@ function initGSAP(){
     });
   });
 
+  // Instagram cards stagger
+  gsap.utils.toArray('.insta-card').forEach((card,i)=>{
+    gsap.from(card,{
+      scrollTrigger:{trigger:card,start:'top 85%',toggleActions:'play none none none'},
+      y:60,opacity:0,duration:0.8,delay:i*0.15,ease:'power3.out'
+    });
+  });
+
   // Condition items stagger
   gsap.utils.toArray('.condition-item').forEach((item,i)=>{
     gsap.from(item,{
@@ -679,6 +687,39 @@ function initFloatingMenu(){
   }
 }
 
+/* ── INSTAGRAM VIDEO MODAL ── */
+function initInstaVideoModal() {
+  const cards = document.querySelectorAll('.insta-card');
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('videoIframe');
+  const closeBtn = document.getElementById('closeVideoBtn');
+  
+  if (!cards.length || !modal || !iframe || !closeBtn) return;
+  
+  cards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const videoUrl = card.getAttribute('data-video-url');
+      if (videoUrl) {
+        iframe.src = videoUrl;
+        modal.classList.add('show');
+      }
+    });
+  });
+  
+  function closeModal() {
+    modal.classList.remove('show');
+    iframe.src = '';
+  }
+  
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+}
+
 /* ── INIT ALL ── */
 function init(){
   initNav();
@@ -694,6 +735,7 @@ function init(){
   initForms();
   initFloatingMenu();
   initClinicCarousel();
+  initInstaVideoModal();
   // GSAP after slight delay to ensure loaded
   setTimeout(initGSAP,100);
 }
