@@ -694,12 +694,14 @@ function initInstaVideoModal() {
   const iframe = document.getElementById('videoIframe');
   const closeBtn = document.getElementById('closeVideoBtn');
   
+  console.log("initInstaVideoModal called. Cards found:", cards.length, "Modal:", !!modal, "Iframe:", !!iframe, "CloseBtn:", !!closeBtn);
   if (!cards.length || !modal || !iframe || !closeBtn) return;
   
-  cards.forEach(card => {
+  cards.forEach((card, index) => {
     card.addEventListener('click', (e) => {
       e.preventDefault();
       const videoUrl = card.getAttribute('data-video-url');
+      console.log(`Card ${index + 1} clicked. Video URL:`, videoUrl);
       if (videoUrl) {
         iframe.src = videoUrl;
         modal.classList.add('show');
